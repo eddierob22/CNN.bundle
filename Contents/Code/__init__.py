@@ -49,7 +49,7 @@ def MainMenu():
   dir.Append(Function(DirectoryItem(VideosMenu, "Weather", thumb=R(ICON), art=R(ART)), videoGroup="by_section_weather"))
   dir.Append(Function(DirectoryItem(VideosMenu, "Staff Picks", thumb=R(ICON), art=R(ART)), videoGroup= "staff_picks"))
   #dir.Append(Function(DirectoryItem(SectionsMenu, "By Section", thumb=R(ICON), art=R(ART))))
-  dir.Append(Function(InputDirectoryItem(Search, "Search CNN", "CNN Video Search", thumb=R("search.png"), art=R(ART))))
+  #dir.Append(Function(InputDirectoryItem(Search, "Search CNN", "CNN Video Search", thumb=R("search.png"), art=R(ART))))
   return dir
 
 ####################################################################################################
