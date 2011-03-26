@@ -41,6 +41,6 @@
 		<string>VP6F</string>
 	</array>
 	<key>PlexPluginDevMode</key>
-	<string>1</string>
+	<string>0</string>
 </dict>
 </plist>
