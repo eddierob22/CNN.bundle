@@ -22,8 +22,6 @@
 	<array>
 		<string>MP3</string>
 	</array>
-	<key>PlexClientPlatforms</key>
-	<string>MacOSX,iOS,Android,LGTV</string>
 	<key>PlexMediaContainer</key>
 	<array>
 		<string>FLV</string>
