@@ -25,21 +25,14 @@
 	<key>PlexMediaContainer</key>
 	<array>
 		<string>FLV</string>
+		<string>Flash</string>
 	</array>
-	<key>PlexPluginConsoleLogging</key>
-	<string>1</string>
 	<key>PlexPluginMode</key>
 	<string>AlwaysOn</string>
-	<key>PlexPluginPrefixes</key>
-	<array>
-		<string>/video/CNN</string>
-	</array>
 	<key>PlexVideoCodec</key>
 	<array>
 		<string>VP6F</string>
 	</array>
-	<key>PlexPluginDevMode</key>
-	<string>0</string>
 	<key>PlexURLServices</key>
 	<dict>
 		<key>CNN-Live</key>

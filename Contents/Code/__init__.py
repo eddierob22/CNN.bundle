@@ -1,7 +1,6 @@
 ICON                = "icon-default.png"
 ART                 = "art-default.png"
 
-CNN_PLUGIN_PREFIX   = "/video/CNN"
 CNN_BASE_URL        = "http://www.cnn.com"
 CNN_VIDEO_URL       = "http://www.cnn.com/video/#"
 CNN_XML_URL         = "http://www.cnn.com/.element/ssi/www/auto/2.0/video/xml/%s.xml"
@@ -31,7 +30,7 @@ CNN_SECTIONS = [('Top Stories', 'top_stories'),
 ####################################################################################################
 
 def Start():
-  Plugin.AddPrefixHandler(CNN_PLUGIN_PREFIX, MainMenu, "CNN", ICON, ART)
+  Plugin.AddPrefixHandler("/video/cnn", MainMenu, "CNN", ICON, ART)
   Plugin.AddViewGroup("InfoList", viewMode = "InfoList", mediaType = "items")
   Plugin.AddViewGroup("List", viewMode = "List", mediaType = "items")
 
@@ -42,6 +41,8 @@ def Start():
   DirectoryObject.thumb = R(ICON)
   DirectoryObject.art = R(ART)
   VideoClipObject.thumb = R(ICON)
+
+  HTTP.CacheTime = CACHE_1HOUR
 
 ####################################################################################################
   
@@ -82,7 +83,7 @@ def LiveStreamMenu():
       message = "No streams available at present")   
 
   return oc
-      
+
 ####################################################################################################
 
 def VideosMenu(title, video_group):
@@ -90,7 +91,7 @@ def VideosMenu(title, video_group):
 
   video_details = XML.ElementFromURL(CNN_XML_URL % video_group)
   if video_details is None: return oc
-  
+
   for video in video_details.xpath("//video"):
 
     # Obtain the actual URL and the associated title.
