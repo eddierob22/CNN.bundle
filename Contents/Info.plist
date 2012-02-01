@@ -40,5 +40,22 @@
 	</array>
 	<key>PlexPluginDevMode</key>
 	<string>0</string>
+	<key>PlexURLServices</key>
+	<dict>
+		<key>CNN-Live</key>
+		<dict>
+			<key>URLPattern</key>
+			<string>cnn://[1-9]+</string>
+			<key>LinkedPlugin</key>
+			<string>com.plexapp.plugins.cnn</string>
+			<key>TestURLs</key>
+			<array>
+                <string>cnn://1</string>
+                <string>cnn://2</string>
+                <string>cnn://3</string>
+                <string>cnn://4</string>
+			</array>
+		</dict>
+    </dict>
 </dict>
 </plist>
