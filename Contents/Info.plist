@@ -16,41 +16,43 @@
 	<string>hook</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
-	<key>PlexFrameworkVersion</key>
-	<string>2</string>
 	<key>PlexAudioCodec</key>
 	<array>
 		<string>AAC</string>
 	</array>
+	<key>PlexClientPlatformExclusions</key>
+	<string>Roku</string>
+	<key>PlexClientPlatforms</key>
+	<string>*</string>
+	<key>PlexFrameworkVersion</key>
+	<string>2</string>
 	<key>PlexMediaContainer</key>
 	<array>
 		<string>MP4</string>
 		<string>Flash</string>
 	</array>
-	<key>PlexClientPlatforms</key>
-	<string>*</string>
 	<key>PlexPluginMode</key>
 	<string>AlwaysOn</string>
-	<key>PlexVideoCodec</key>
-	<array>
-		<string>H.264</string>
-	</array>
 	<key>PlexURLServices</key>
 	<dict>
 		<key>CNN-Live</key>
 		<dict>
-			<key>URLPattern</key>
-			<string>cnn://[1-9]+</string>
 			<key>LinkedPlugin</key>
 			<string>com.plexapp.plugins.cnn</string>
 			<key>TestURLs</key>
 			<array>
-                <string>cnn://1</string>
-                <string>cnn://2</string>
-                <string>cnn://3</string>
-                <string>cnn://4</string>
+				<string>cnn://1</string>
+				<string>cnn://2</string>
+				<string>cnn://3</string>
+				<string>cnn://4</string>
 			</array>
+			<key>URLPattern</key>
+			<string>cnn://[1-9]+</string>
 		</dict>
-    </dict>
+	</dict>
+	<key>PlexVideoCodec</key>
+	<array>
+		<string>H.264</string>
+	</array>
 </dict>
 </plist>
