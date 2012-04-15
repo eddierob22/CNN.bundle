@@ -35,7 +35,7 @@
 	<string>AlwaysOn</string>
 	<key>PlexURLServices</key>
 	<dict>
-		<key>CNN-Live</key>
+		<key>CNN Live</key>
 		<dict>
 			<key>LinkedPlugin</key>
 			<string>com.plexapp.plugins.cnn</string>

@@ -1,12 +1,12 @@
-ICON                = "icon-default.png"
-ART                 = "art-default.png"
+ICON = "icon-default.png"
+ART = "art-default.png"
 
-CNN_BASE_URL        = "http://www.cnn.com"
-CNN_VIDEO_URL       = "http://www.cnn.com/video/#"
-CNN_XML_URL         = "http://www.cnn.com/.element/ssi/www/auto/2.0/video/xml/%s.xml"
-CNN_JSON_URL        = "http://www.cnn.com/video/data/2.0/%s"
+CNN_BASE_URL = "http://www.cnn.com"
+CNN_VIDEO_URL = "http://www.cnn.com/video/#"
+CNN_XML_URL = "http://www.cnn.com/.element/ssi/www/auto/2.0/video/xml/%s.xml"
+CNN_JSON_URL = "http://www.cnn.com/video/data/2.0/%s"
 
-LIVE_URL        = "cnn://%s"
+LIVE_URL = "cnn://%s"
 LIVE_STREAM_BASE_URL = 'http://www.cnn.com/CNNLiveFlash/StreamStatus/metadata/stream_dvr_%s.xml'
 LIVE_STREAMS = ['1','2','3','4']
 
@@ -28,8 +28,8 @@ CNN_SECTIONS = [('Top Stories', 'top_stories'),
                 ('Staff Picks', 'staff_picks')]
 
 ####################################################################################################
-
 def Start():
+
   Plugin.AddPrefixHandler("/video/cnn", MainMenu, "CNN", ICON, ART)
   Plugin.AddViewGroup("InfoList", viewMode = "InfoList", mediaType = "items")
   Plugin.AddViewGroup("List", viewMode = "List", mediaType = "items")
@@ -45,8 +45,8 @@ def Start():
   HTTP.CacheTime = CACHE_1HOUR
 
 ####################################################################################################
-  
 def MainMenu():
+
   oc = ObjectContainer()
   oc.add(DirectoryObject(key = Callback(LiveStreamMenu), title = 'Live News'))
 
@@ -58,19 +58,18 @@ def MainMenu():
   return oc
 
 ####################################################################################################
-
 def LiveStreamMenu():  
+
   oc = ObjectContainer(title2 = "Live Streams", view_group= "InfoList")
 
   for stream_id in LIVE_STREAMS:
-
     stream_xml = XML.ElementFromURL(LIVE_STREAM_BASE_URL % stream_id, cacheTime = 0)
     stream = stream_xml.xpath("//streams/stream")[0]
-    if stream.get('command') == 'start':
 
+    if stream.get('command') == 'start':
       title = stream.xpath("./title/text()")[0]
       summary = stream.xpath("./description/text()")[0]
-          
+
       oc.add(VideoClipObject(
         url = LIVE_URL % stream_id,
         title = title,
@@ -78,18 +77,18 @@ def LiveStreamMenu():
 
   if len(oc) == 0:
     return MessageContainer(
-      title1="CNN streams",
       header = "CNN Live Streams", 
       message = "No streams available at present")   
 
   return oc
 
 ####################################################################################################
-
 def VideosMenu(title, video_group):
+
   oc = ObjectContainer(title2 = title)
 
   video_details = XML.ElementFromURL(CNN_XML_URL % video_group)
+
   if video_details is None: return oc
 
   for video in video_details.xpath("//video"):
