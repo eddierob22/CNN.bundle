@@ -98,15 +98,11 @@ def VideosMenu(title, video_group):
     title = video.xpath(".//tease_txt/text()")[0]
 
     # Obtain the highest quality video available.
-    thumb = None
+    thumbs = []
     thumb_paths = ["splash_image_url", "image_url", "tz_image_url"]
     for path in thumb_paths:
-      thumb = video.xpath(".//%s/text()" % path)[0]
-      if thumb != None:
-        break
-    if thumb is None:
-      thumb = R(ICON)
-
+      thumbs.append(video.xpath(".//%s/text()" % path)[0])
+  
     # Determine the duration of the video
     duration = None
     duration_text = video.xpath('.//vid_duration/text()')[0]
@@ -121,7 +117,7 @@ def VideosMenu(title, video_group):
       oc.add(VideoClipObject(
         url = video_url,
         title = title,
-        thumb = thumb,
+        thumb = Resource.ContentsOfURLWithFallback(url=thumbs, fallback=ICON),
         duration = duration))
 
   return oc
