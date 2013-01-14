@@ -1,5 +1,5 @@
 ICON = "icon-default.png"
-ART = "art-default.png"
+ART = "art-default.jpg"
 
 CNN_BASE_URL = "http://www.cnn.com"
 CNN_VIDEO_URL = "http://www.cnn.com/video/#"
